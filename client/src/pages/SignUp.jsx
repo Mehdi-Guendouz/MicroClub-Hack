@@ -10,8 +10,12 @@ import { useNavigate } from "react-router-dom";
 export const SignUp = () => {
   const navigate = useNavigate();
   const [Section, setSection] = useState(false);
-  const [Company, setCompany] = useState({});
-  const { register, formState, handleSubmit } = useForm({
+  const [Company, setCompany] = useState({
+    name: null,
+    Product: null,
+    City: null,
+  });
+  const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(NewUser),
   });
   const OnHandleSubmit = (data) => {
@@ -19,7 +23,10 @@ export const SignUp = () => {
     console.log(Company);
   };
   return (
-    <div className="flex items-center justify-center tracking-tight overflow-hidden ">
+    <section
+      onSubmit={handleSubmit(OnHandleSubmit)}
+      className="flex items-center justify-center tracking-tight overflow-hidden "
+    >
       <div className="h-[100vh] w-[50%]">
         <img
           src={bannerImage}
@@ -37,7 +44,6 @@ export const SignUp = () => {
             <form
               action=""
               className="flex items-center flex-col h-full gap-y-8 "
-              onSubmit={handleSubmit(OnHandleSubmit)}
             >
               <div className="w-full flex items-center gap-x-9">
                 <input
@@ -124,10 +130,6 @@ export const SignUp = () => {
                   type="submit"
                   className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
               border-[#C9C3C3] px-[25px] py-[10px] text-[20px]"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSection(!Section);
-                  }}
                 >
                   Next
                 </button>
@@ -225,6 +227,6 @@ export const SignUp = () => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
