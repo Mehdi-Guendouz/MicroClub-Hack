@@ -4,24 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   font-family: 'Outfit', sans-serif ; 
 }
 
-@layer base {
-  a {
-    @apply cursor-pointer ; 
-  }
-}
-
-@layer components {
-  .main {
-    @apply max-w-[70vw] flex items-center m-auto !importanta;
-  }
-}
 
 /* side bar */
 .gridsidebar {
   grid-template-columns: 10% 1fr;
   @apply grid 
 }
+
