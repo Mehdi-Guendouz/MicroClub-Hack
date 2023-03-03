@@ -8,27 +8,33 @@ import arrowImg from "../assets/arrow.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 export const SignUp = () => {
   const [Section, setSection] = useState(false);
-  const [first, setfirst] = useState('');
-  const [last, setlast] = useState('');
-  const [email, setemail] = useState('');
-  const [pass, setpass] = useState('');
-  const [passcomf, setpasscomf] = useState('');
-  const [business, setbusiness] = useState('');
-  const [city, setcity] = useState('');
-  const [Company, setCompany] = useState('');
-
+  const [first, setfirst] = useState("");
+  const [last, setlast] = useState("");
+  const [email, setemail] = useState("");
+  const [pass, setpass] = useState("");
+  const [passcomf, setpasscomf] = useState("");
+  const [business, setbusiness] = useState("");
+  const [city, setcity] = useState("");
+  const [Company, setCompany] = useState("");
 
   const OnHandleSubmit = async (e) => {
     e.preventDefault();
-    const data = { first_name: first, last_name: last, email, password: pass,password_confirmation:passcomf,field: Company, place: city };
+    const data = {
+      first_name: first,
+      last_name: last,
+      email,
+      password: pass,
+      password_confirmation: passcomf,
+      field: Company,
+      place: city,
+    };
 
     console.log(data);
     try {
-      const response = await axios.post('/auth/signup', data);
-     
+      const response = await axios.post("/auth/signup", data);
+
       const datauser = await response.json();
       // alert('Login successful');
       // navigate("/dashboard");
@@ -37,8 +43,7 @@ export const SignUp = () => {
       // alert('Login failed');
     }
   };
-  
-  
+
   return (
     <section className="flex items-center justify-center tracking-tight overflow-hidden ">
       <div className="h-[100vh] w-[50%]">
@@ -49,19 +54,19 @@ export const SignUp = () => {
         />
       </div>
       <div className="w-[50%] h-[100vh]  flex justify-center ">
-      <form
-              className="flex items-center flex-col h-full gap-y-8 "
-              onSubmit={OnHandleSubmit}
-            >
-        {!Section ? (
-          <div
-            className="w-[80%] m-auto flex flex-col items-center text-[#301E52]
+        <form
+          className="flex items-center flex-col h-full gap-y-8 "
+          onSubmit={OnHandleSubmit}
+        >
+          {!Section ? (
+            <div
+              className="w-[80%] m-auto flex flex-col items-center text-[#301E52]
           font-semibold gap-y-[2rem] "
-          >
-            <center className="text-[30px]">
-              <strong>Logo</strong>
-            </center>
-            <h2 className="text-[30px]">Create an Account</h2>
+            >
+              <center className="text-[30px]">
+                <strong>Logo</strong>
+              </center>
+              <h2 className="text-[30px]">Create an Account</h2>
               <div className="w-full flex items-center gap-x-9">
                 <input
                   type="text"
@@ -70,8 +75,7 @@ export const SignUp = () => {
                   id="FirstName"
                   className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                  onChange={ev => setfirst(ev.target.value)}
-
+                  onChange={(ev) => setfirst(ev.target.value)}
                 />
                 <input
                   type="text"
@@ -80,8 +84,7 @@ export const SignUp = () => {
                   id="LastName"
                   className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-
-                onChange={ev => setlast(ev.target.value)}
+                  onChange={(ev) => setlast(ev.target.value)}
                 />
               </div>
               <input
@@ -91,8 +94,7 @@ export const SignUp = () => {
                 placeholder="Email"
                 className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-
-                onChange={ev => setemail(ev.target.value)}
+                onChange={(ev) => setemail(ev.target.value)}
               />
               <div className="flex w-full items-center gap-x-9">
                 <input
@@ -102,7 +104,7 @@ export const SignUp = () => {
                   placeholder="Password"
                   className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                onChange={ev => setpass(ev.target.value)}
+                  onChange={(ev) => setpass(ev.target.value)}
                 />
                 <input
                   type="password"
@@ -111,7 +113,7 @@ export const SignUp = () => {
                   placeholder="Confirm Password"
                   className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                onChange={ev => setpasscomf(ev.target.value)}
+                  onChange={(ev) => setpasscomf(ev.target.value)}
                 />
               </div>
               <div className="w-full flex items-center justify-between">
@@ -133,14 +135,14 @@ export const SignUp = () => {
                   next
                 </div>
               </div>
-          </div>
-        ) : (
-          <div className="w-full h-[100vh]  flex items-center justify-center  ">
-            <div className="w-[80%] m-auto flex flex-col gap-y-[2rem]">
-              <center className="text-[30px]">
-                <strong>Logo</strong>
-              </center>
-              <h2 className="text-[30px]">Complete Subscription</h2>
+            </div>
+          ) : (
+            <div className="w-full h-[100vh]  flex items-center justify-center  ">
+              <div className="w-[80%] m-auto flex flex-col gap-y-[2rem]">
+                <center className="text-[30px]">
+                  <strong>Logo</strong>
+                </center>
+                <h2 className="text-[30px]">Complete Subscription</h2>
                 <input
                   type="text"
                   id="company name"
@@ -148,10 +150,10 @@ export const SignUp = () => {
                   placeholder="Company name"
                   className="w-full border border-solid border-[#C9C3C3] rounded-xl
                   px-[23px] py-[13.5px] placeholder:text-[#C9C3C3] outline-none "
-                  onChange={ev => setCompany(ev.target.value)}
+                  onChange={(ev) => setCompany(ev.target.value)}
                 />
                 <select
-                  onChange={ev => setbusiness(ev.target.value)}
+                  onChange={(ev) => setbusiness(ev.target.value)}
                   name="selectorProduct"
                   id="selectorProduct"
                   className="w-full outline-none border border-solid border-[#C9C3C3] 
@@ -165,7 +167,7 @@ export const SignUp = () => {
                   <option value="Watches">Watches</option>
                 </select>
                 <select
-                  onChange={ev => setcity(ev.target.value)}
+                  onChange={(ev) => setcity(ev.target.value)}
                   name="selectorCity"
                   id="selectorCity"
                   className="w-full outline-none border border-solid border-[#C9C3C3] 
@@ -179,29 +181,29 @@ export const SignUp = () => {
                   <option value="Tebessa">Tebessa</option>
                   <option value="Tizi Ouzou">Tizi Ouzou</option>
                 </select>
-             
-              <div className="w-full flex items-center justify-between">
-                <div
-                  onClick={() => {
-                    setSection(!Section);
-                  }}
-                  className="cursor-pointer flex gap-x-1 text-[#703EDC] text-base"
-                >
-                  <img src={arrowImg} alt="arrowImg " />
-                  Back
-                </div>
-                <button
-                  type="submit"
-                  className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
+
+                <div className="w-full flex items-center justify-between">
+                  <div
+                    onClick={() => {
+                      setSection(!Section);
+                    }}
+                    className="cursor-pointer flex gap-x-1 text-[#703EDC] text-base"
+                  >
+                    <img src={arrowImg} alt="arrowImg " />
+                    Back
+                  </div>
+                  <button
+                    type="submit"
+                    className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
                 border-[#C9C3C3] px-[25px] py-[10px] text-[20px]"
-                >
-                  Confirm
-                  <img src={confirmProc} alt="" />
-                </button>
+                  >
+                    Confirm
+                    <img src={confirmProc} alt="" />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
         </form>
       </div>
     </section>

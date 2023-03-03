@@ -4,14 +4,11 @@ import { Home } from "./pages/Home";
 import { SignUp } from "./pages/SignUp";
 import axios from "axios";
 import { SignIn } from "./pages/SignIn";
-
-axios.defaults.baseURL = 'http://localhost:4000';
-axios.defaults.withCredentials = true;
-
-
 import { Dashboard } from "./pages/Dashboard";
+import { USerProfilePage } from "./pages/Profile";
 
-import { SignIn } from "./pages/SignIn";
+axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.withCredentials = true;
 
 function App() {
   return (
@@ -20,11 +17,10 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/signUp" element={<SignUp />} />
-
           <Route exact path="/dashbord" element={<Dashboard />} />
-
           <Route exact path="/signIn" element={<SignIn />} />
-
+          <Route exact path="/profile" element={<USerProfilePage />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </Router>
     </div>
