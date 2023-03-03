@@ -17,9 +17,14 @@ const port = process.env.PORT || 4000;
 
 //middlewares
 app.use(bodyParser.json());
-app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    credentials: true,
+    origin: (origin , callback) =>{
+        callback(null,origin);
+    }
+}));
 
 
 

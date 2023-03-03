@@ -1,23 +1,43 @@
 import bannerImage from "../assets/CreateAccout.png";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { NewUser } from "../staticData/SignUpUserSchema";
+// import { useForm } from "react-hook-form";
+// import { yupResolver } from "@hookform/resolvers/yup";
+// import { NewUser } from "../staticData/SignUpUserSchema";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import arrowImg from "../assets/arrow.svg";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const SignUp = () => {
   const navigate = useNavigate();
   const [Section, setSection] = useState(false);
-  const [Company, setCompany] = useState({});
-  const { register, formState, handleSubmit } = useForm({
-    resolver: yupResolver(NewUser),
-  });
-  const OnHandleSubmit = (data) => {
+  const [first, setfirst] = useState('');
+  const [last, setlast] = useState('');
+  const [email, setemail] = useState('');
+  const [pass, setpass] = useState('');
+  const [passcomf, setpasscomf] = useState('');
+  const [business, setbusiness] = useState('');
+  const [city, setcity] = useState('');
+  const [Company, setCompany] = useState('');
+
+
+  const OnHandleSubmit = async (e) => {
+    e.preventDefault();
+    const data = { first_name: first, last_name: last, email, password: pass,password_confirmation:passcomf,field: Company, place: city };
     console.log(data);
-    console.log(Company);
+    try {
+      const response = await axios.post('/auth/signup', data);
+     
+      const datauser = await response.json();
+      // alert('Login successful');
+      // navigate("/dashboard");
+    } catch (e) {
+      console.log(e);
+      // alert('Login failed');
+    }
   };
+  
+  
   return (
     <div className="flex items-center justify-center tracking-tight overflow-hidden ">
       <div className="h-[100vh] w-[50%]">
@@ -28,17 +48,17 @@ export const SignUp = () => {
         />
       </div>
       <div className="w-[50%] h-[100vh]  flex justify-center ">
+      <form
+              className="flex items-center flex-col h-full gap-y-8 "
+              onSubmit={OnHandleSubmit}
+            >
         {!Section ? (
           <div className="w-[80%] m-auto flex flex-col gap-y-[2rem] ">
             <center className="text-[30px]">
               <strong>Logo</strong>
             </center>
             <h2 className="text-[30px]">Create an Account</h2>
-            <form
-              action=""
-              className="flex items-center flex-col h-full gap-y-8 "
-              onSubmit={handleSubmit(OnHandleSubmit)}
-            >
+            
               <div className="w-full flex items-center gap-x-9">
                 <input
                   type="text"
@@ -47,12 +67,7 @@ export const SignUp = () => {
                   id="FirstName"
                   className="w-full outline-none
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                  {...register("FirstName")}
-                  style={{
-                    border: formState.errors.FirstName?.message
-                      ? "1px solid red"
-                      : "1px solid #C9C3C3",
-                  }}
+                  onChange={ev => setfirst(ev.target.value)}
                 />
                 <input
                   type="text"
@@ -61,12 +76,7 @@ export const SignUp = () => {
                   id="LastName"
                   className="w-full outline-none
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                  {...register("LastName")}
-                  style={{
-                    border: formState.errors.FirstName?.message
-                      ? "1px solid red"
-                      : "1px solid #C9C3C3",
-                  }}
+                onChange={ev => setlast(ev.target.value)}
                 />
               </div>
               <input
@@ -76,12 +86,7 @@ export const SignUp = () => {
                 placeholder="Email"
                 className="w-full outline-none
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                {...register("email")}
-                style={{
-                  border: formState.errors.FirstName?.message
-                    ? "1px solid red"
-                    : "1px solid #C9C3C3",
-                }}
+                onChange={ev => setemail(ev.target.value)}
               />
               <div className="flex w-full items-center gap-x-9">
                 <input
@@ -91,12 +96,7 @@ export const SignUp = () => {
                   placeholder="Password"
                   className="w-full outline-none
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                  {...register("password")}
-                  style={{
-                    border: formState.errors.FirstName?.message
-                      ? "1px solid red"
-                      : "1px solid #C9C3C3",
-                  }}
+                onChange={ev => setpass(ev.target.value)}
                 />
                 <input
                   type="password"
@@ -105,12 +105,7 @@ export const SignUp = () => {
                   placeholder="Confirm Password"
                   className="w-full outline-none
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
-                  {...register("confirmPassword")}
-                  style={{
-                    border: formState.errors.FirstName?.message
-                      ? "1px solid red"
-                      : "1px solid #C9C3C3",
-                  }}
+                onChange={ev => setpasscomf(ev.target.value)}
                 />
               </div>
               <div className="w-full flex items-center justify-between">
@@ -120,19 +115,17 @@ export const SignUp = () => {
                 >
                   Sign In?
                 </Link>
-                <button
-                  type="submit"
+                <div
                   className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
-              border-[#C9C3C3] px-[25px] py-[10px] text-[20px]"
+              border-[#C9C3C3] px-[25px] py-[10px] text-[20px] cursor-pointer"
                   onClick={(e) => {
                     e.preventDefault();
                     setSection(!Section);
                   }}
                 >
-                  Next
-                </button>
+                  next
+                </div>
               </div>
-            </form>
           </div>
         ) : (
           <div className="w-full h-[100vh]  flex items-center  ">
@@ -141,10 +134,6 @@ export const SignUp = () => {
                 <strong>Logo</strong>
               </center>
               <h2 className="text-[30px]">Complete Subscription</h2>
-              <form
-                action=""
-                className="flex items-center flex-col h-full gap-y-8 "
-              >
                 <input
                   type="text"
                   id="company name"
@@ -152,20 +141,10 @@ export const SignUp = () => {
                   placeholder="Company name"
                   className="w-full border border-solid border-[#C9C3C3] rounded-xl
                   px-[23px] py-[13.5px] placeholder:text-[#C9C3C3] outline-none "
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setCompany({
-                      Name: e.target.value,
-                    });
-                  }}
+                  onChange={ev => setCompany(ev.target.value)}
                 />
                 <select
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setCompany({
-                      Product: e.target.value,
-                    });
-                  }}
+                  onChange={ev => setbusiness(ev.target.value)}
                   name="selectorProduct"
                   id="selectorProduct"
                   className="w-full outline-none border border-solid border-[#C9C3C3] 
@@ -179,12 +158,7 @@ export const SignUp = () => {
                   <option value="Watches">Watches</option>
                 </select>
                 <select
-                  onChange={(e) => {
-                    e.preventDefault();
-                    setCompany({
-                      City: e.target.value,
-                    });
-                  }}
+                  onChange={ev => setcity(ev.target.value)}
                   name="selectorCity"
                   id="selectorCity"
                   className="w-full outline-none border border-solid border-[#C9C3C3] 
@@ -198,7 +172,7 @@ export const SignUp = () => {
                   <option value="Tebessa">Tebessa</option>
                   <option value="Tizi Ouzou">Tizi Ouzou</option>
                 </select>
-              </form>
+             
               <div className="w-full flex items-center justify-between">
                 <div
                   onClick={() => {
@@ -213,10 +187,6 @@ export const SignUp = () => {
                   type="submit"
                   className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
                 border-[#C9C3C3] px-[25px] py-[10px] text-[20px]"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate("/dashbord");
-                  }}
                 >
                   Confirm
                 </button>
@@ -224,6 +194,7 @@ export const SignUp = () => {
             </div>
           </div>
         )}
+        </form>
       </div>
     </div>
   );
