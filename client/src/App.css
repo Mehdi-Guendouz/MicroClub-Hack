@@ -1,9 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer {
-  .main {
-    @apply max-w-[70vw] flex items-center m-auto !importanta;
-  }
+
+
+body{
+    font-family: 'Outfit', sans-serif;
+}
+
+.box-shadow-btn{
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+
 }
