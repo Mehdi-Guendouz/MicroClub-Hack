@@ -1,5 +1,7 @@
 import { useState } from "react";
 import bannerImage from "../assets/CreateAccout.png";
+import { Link } from "react-router-dom";
+import confirmProc from "../assets/confirmProc.svg";
 
 export const SignIn = () => {
   const [Email, setEamil] = useState("");
@@ -45,13 +47,23 @@ export const SignIn = () => {
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button
-              type="submit"
-              className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
-              border-[#C9C3C3] px-[25px] py-[10px] text-[20px]"
-            >
-              Submit
-            </button>
+            <div className="w-full flex items-center justify-between ">
+              <Link to="/signUp" className="text-[#703EDC] underline text-base">
+                Sign Up ?
+              </Link>
+              <button
+                type="submit"
+                className="text-white bg-[#703EDC] capitalize rounded-[64px] border border-solid
+              border-[#C9C3C3] px-[25px] py-[10px] text-[20px] flex items-center gap-x-2 "
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/dashbord");
+                }}
+              >
+                Confirm
+                <img src={confirmProc} alt="" />
+              </button>
+            </div>
           </form>
         </div>
       </div>
