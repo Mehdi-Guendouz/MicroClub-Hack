@@ -4,7 +4,7 @@ import BtnStarted from "../assets/BtnStaretd.svg";
 
 export const Navbar = () => {
   return (
-    <nav className="Navigation">
+    <nav className="flex items-center justify-around bg-red-600">
       <div className="LogoHolder">
         <p>Logo</p>
       </div>

@@ -3,9 +3,9 @@ import { Navbar } from "../components/Navbar";
 
 export const Home = () => {
   return (
-    <section className="Home">
+    <section className="px-6 bg-red-400">
       <Navbar />
-      <BodySection />
+      {/* <BodySection /> */}
     </section>
   );
 };
