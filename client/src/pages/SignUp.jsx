@@ -8,8 +8,8 @@ import arrowImg from "../assets/arrow.svg";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+
 export const SignUp = () => {
-  const navigate = useNavigate();
   const [Section, setSection] = useState(false);
   const [first, setfirst] = useState('');
   const [last, setlast] = useState('');
@@ -24,6 +24,7 @@ export const SignUp = () => {
   const OnHandleSubmit = async (e) => {
     e.preventDefault();
     const data = { first_name: first, last_name: last, email, password: pass,password_confirmation:passcomf,field: Company, place: city };
+
     console.log(data);
     try {
       const response = await axios.post('/auth/signup', data);
@@ -39,7 +40,7 @@ export const SignUp = () => {
   
   
   return (
-    <div className="flex items-center justify-center tracking-tight overflow-hidden ">
+    <section className="flex items-center justify-center tracking-tight overflow-hidden ">
       <div className="h-[100vh] w-[50%]">
         <img
           src={bannerImage}
@@ -53,29 +54,33 @@ export const SignUp = () => {
               onSubmit={OnHandleSubmit}
             >
         {!Section ? (
-          <div className="w-[80%] m-auto flex flex-col gap-y-[2rem] ">
+          <div
+            className="w-[80%] m-auto flex flex-col items-center text-[#301E52]
+          font-semibold gap-y-[2rem] "
+          >
             <center className="text-[30px]">
               <strong>Logo</strong>
             </center>
             <h2 className="text-[30px]">Create an Account</h2>
-            
               <div className="w-full flex items-center gap-x-9">
                 <input
                   type="text"
                   placeholder="First name"
                   name="FirstName"
                   id="FirstName"
-                  className="w-full outline-none
+                  className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
                   onChange={ev => setfirst(ev.target.value)}
+
                 />
                 <input
                   type="text"
                   placeholder="Last name"
                   name="LastName"
                   id="LastName"
-                  className="w-full outline-none
+                  className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
+
                 onChange={ev => setlast(ev.target.value)}
                 />
               </div>
@@ -84,8 +89,9 @@ export const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Email"
-                className="w-full outline-none
+                className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
+
                 onChange={ev => setemail(ev.target.value)}
               />
               <div className="flex w-full items-center gap-x-9">
@@ -94,7 +100,7 @@ export const SignUp = () => {
                   name="password"
                   id="password"
                   placeholder="Password"
-                  className="w-full outline-none
+                  className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
                 onChange={ev => setpass(ev.target.value)}
                 />
@@ -103,7 +109,7 @@ export const SignUp = () => {
                   name="confirmPassowrd"
                   id="confirmPassword"
                   placeholder="Confirm Password"
-                  className="w-full outline-none
+                  className="w-full outline-none border border-solid border-[#C9C3C3]
                 placeholder:text-[#C9C3C3] px-[22px] py-[19px] rounded-xl "
                 onChange={ev => setpasscomf(ev.target.value)}
                 />
@@ -115,6 +121,7 @@ export const SignUp = () => {
                 >
                   Sign In?
                 </Link>
+
                 <div
                   className="text-white bg-[#703EDC] capitalize rounded-xl border border-solid
               border-[#C9C3C3] px-[25px] py-[10px] text-[20px] cursor-pointer"
@@ -128,7 +135,7 @@ export const SignUp = () => {
               </div>
           </div>
         ) : (
-          <div className="w-full h-[100vh]  flex items-center  ">
+          <div className="w-full h-[100vh]  flex items-center justify-center  ">
             <div className="w-[80%] m-auto flex flex-col gap-y-[2rem]">
               <center className="text-[30px]">
                 <strong>Logo</strong>
@@ -178,7 +185,7 @@ export const SignUp = () => {
                   onClick={() => {
                     setSection(!Section);
                   }}
-                  className="cursor-pointer flex gap-x-1 text-[#703EDC] underline text-base"
+                  className="cursor-pointer flex gap-x-1 text-[#703EDC] text-base"
                 >
                   <img src={arrowImg} alt="arrowImg " />
                   Back
@@ -189,6 +196,7 @@ export const SignUp = () => {
                 border-[#C9C3C3] px-[25px] py-[10px] text-[20px]"
                 >
                   Confirm
+                  <img src={confirmProc} alt="" />
                 </button>
               </div>
             </div>
@@ -196,6 +204,6 @@ export const SignUp = () => {
         )}
         </form>
       </div>
-    </div>
+    </section>
   );
 };
