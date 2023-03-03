@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+  .main {
+    @apply max-w-[70vw] flex items-center m-auto !importanta;
+  }
+}

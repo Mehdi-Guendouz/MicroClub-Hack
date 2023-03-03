@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
 //import routes
@@ -18,6 +19,9 @@ const port = process.env.PORT || 4000;
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
+
+
 
 //routes middleware
 app.use('/auth', authRoutes);
