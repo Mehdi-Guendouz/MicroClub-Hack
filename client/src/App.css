@@ -1,10 +1,27 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@layer {
+* {
+  font-family: 'Outfit', sans-serif ; 
+}
+
+@layer base {
+  a {
+    @apply cursor-pointer ; 
+  }
+}
+
+@layer components {
   .main {
     @apply max-w-[70vw] flex items-center m-auto !importanta;
   }
+}
+
+/* side bar */
+.gridsidebar {
+  grid-template-columns: 10% 1fr;
+  @apply grid 
 }
