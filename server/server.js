@@ -6,7 +6,8 @@ require('dotenv').config();
 
 //import routes
 const authRoutes = require('./routes/auth');
-const { db } = require('./models/User');
+const ProductRoutes = require('./routes/Product');
+
 //app
 const app = express();
 
@@ -20,14 +21,8 @@ app.use(express.json());
 
 //routes middleware
 app.use('/auth', authRoutes);
+app.use('/', ProductRoutes);
 
-// mongoose.connect(uri,{useNewUrlParser : true, useCreateIndex : true });
-
-// const connection = mongoose.connection;
-
-// connection.once('open', ()=> {
-//     console.log("mongodb database connection established successfully ")
-// }); 
 
 mongoose.set("strictQuery", true);
 mongoose.connect(process.env.ATLAS_URI)
