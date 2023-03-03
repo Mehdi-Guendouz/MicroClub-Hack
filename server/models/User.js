@@ -8,7 +8,6 @@ const userschema = new Schema({
         type: String,
         required : true,
     },
-        
     last_name:{
         type: String,
         required : true,
@@ -37,6 +36,5 @@ const userschema = new Schema({
     }
 
 );
- 
-const usermodel = mongoose.model("users", userschema);
-module.export=usermodel;
+
+module.exports = mongoose.model('User', userschema)
