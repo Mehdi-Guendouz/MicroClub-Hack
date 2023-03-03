@@ -11,7 +11,7 @@ const { db } = require('./models/User');
 const app = express();
 
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 4000;
 
 //middlewares
 app.use(bodyParser.json());
@@ -21,19 +21,21 @@ app.use(express.json());
 //routes middleware
 app.use('/auth', authRoutes);
 
-const uri = process.env.ATLAS_URI;
+// mongoose.connect(uri,{useNewUrlParser : true, useCreateIndex : true });
 
-mongoose.connect(uri,{useNewUrlParser : true, useCreateIndex : true });
+// const connection = mongoose.connection;
 
-const connection = mongoose.connection;
+// connection.once('open', ()=> {
+//     console.log("mongodb database connection established successfully ")
+// }); 
 
-connection.once('open', ()=> {
-    console.log("mongodb database connection established successfully ")
-}); 
-
-
-
-
-app.listen(port, () => {
- console.log(`Welcome to !Server is running on ${port}`)
-});
+mongoose.set("strictQuery", true);
+mongoose.connect(process.env.ATLAS_URI)
+    .then(() => {
+        app.listen(process.env.PORT, ()=>{
+            console.log('listing on port', process.env.PORT)
+        })
+    })
+    .catch((error) => {
+        console.log(error)
+    })
