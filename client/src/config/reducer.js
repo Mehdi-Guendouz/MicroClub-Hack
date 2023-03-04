@@ -1,6 +1,6 @@
 export let initialState = {
   user: {},
-  products: {},
+  products: [],
 };
 
 export const reducer = (state, action) => {

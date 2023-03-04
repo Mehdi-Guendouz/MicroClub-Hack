@@ -3,34 +3,37 @@ import { Sidebar } from "../components/Sidebar";
 import { UserProfileDropDown } from "../components/userDropDown";
 import addBtn from "../assets/addBtn.svg";
 import { AddProduct } from "../components/addProduct";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useDataLayerValue } from "../config/dataLayer";
 
 export const ViewData = () => {
-  const products = [
-    {
-      id: 1,
-      name: "product 1",
-      price: 100,
-      age: 10,
-      date: "2021-10-10",
-    },
-    {
-      id: 2,
-      name: "product 2",
-      price: 200,
-      age: 20,
-      date: "2021-10-10",
-    },
-  ];
-  const [Toggle, setToggle] = useState(true);
+  const [{ products }, dispatch] = useDataLayerValue();
+  const [response, setResponse] = useState([]);
+  const getDataProducts = async () => {
+    const { data } = await axios.get("/getData");
+    const response = await axios.get("/getData");
+    if (data) {
+      dispatch({
+        type: "SET_PRODUCTS",
+        products: data,
+      });
+      setResponse([...response.data, ...products]);
+      handleToggle(false);
+    }
+  };
+  const [Toggle, setToggle] = useState(false);
+  useEffect(() => {
+    getDataProducts();
+  }, []);
   const handleToggle = (toggle) => {
     setToggle(toggle);
   };
   return (
-    <div className="absolute">
-      <section className="w-screen h-screen flex">
+    <div className="basis-[83%]">
+      <section className="flex">
         <Sidebar />
-        <section className="flex mt-3 w-[80%] justify-center ">
+        <section className="flex mt-3 basis-[83%] justify-center ">
           <div className="w-[80%]">
             <div className="w-full flex items-center justify-between ">
               <h2 className="text-[32px] font-semibold ">Clients & Products</h2>
@@ -60,28 +63,28 @@ export const ViewData = () => {
                     <tbody>
                       <tr className="text-white">
                         <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC] ">
-                          Client
+                          ID
                         </th>
                         <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC]">
-                          Prodcut
+                          Clien
+                        </th>
+                        <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC]">
+                          Region
+                        </th>
+                        <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC]">
+                          Quantity
                         </th>
                         <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC]">
                           Price
                         </th>
-                        <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC]">
-                          Age
-                        </th>
-                        <th className="px-3 py-2 border border-solid border-[#F3F3F3] bg-[#703EDC]">
-                          Date
-                        </th>
                       </tr>
-                      {products.map(({ id, name, age, price, date }) => (
-                        <tr key={id}>
-                          <td className="px-2 py-1">{id}</td>
-                          <td className="px-2 py-1">{name}</td>
-                          <td className="px-2 py-1">{age}</td>
-                          <td className="px-2 py-1">{price}</td>
-                          <td className="px-2 py-1">{date}</td>
+                      {response?.map((product) => (
+                        <tr key={product?._id}>
+                          <td className="px-2 py-1">{product._id}</td>
+                          <td className="px-2 py-1">{product.name}</td>
+                          <td className="px-2 py-1">{product.region}</td>
+                          <td className="px-2 py-1">{product.quantity}</td>
+                          <td className="px-2 py-1">{product.price}.00 Da</td>
                         </tr>
                       ))}
                     </tbody>

@@ -13,6 +13,7 @@ export const Sidebar = () => {
         {options.map((Element) => {
           return (
             <Link
+              key={Element.name}
               to={`/${Element.name}`}
               className=" px-4 py-2 grid gridsidebar text-left gap-4 text-white font-bold hover:bg-[#FE8057]"
             >
