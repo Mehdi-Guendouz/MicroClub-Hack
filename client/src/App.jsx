@@ -13,6 +13,7 @@ axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
 
 import Upload from "./pages/Upload";
+import { Intellegent } from "./components/Intellegent";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/signUp" element={<SignUp />} />
           <Route exact path="/Dashboard" element={<Dashboard />} />
+          <Route exact path="/Intelligent features" element={<Intellegent />} />
           <Route exact path="/signIn" element={<SignIn />} />
 
           <Route exact path="/profile" element={<USerProfilePage />} />

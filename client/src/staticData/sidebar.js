@@ -17,7 +17,7 @@ export const options = [
     icon: view,
   },
   {
-    name: "Intelligent features ",
+    name: "Intelligent features",
     icon: intelligent,
   },
   {
