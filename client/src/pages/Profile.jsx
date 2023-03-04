@@ -20,11 +20,11 @@ export const USerProfilePage = () => {
         <div className="max-w-[100%] m-auto ">
           <h2 className="text-[#301E52] text-3xl font-semibold ">Profile</h2>
           <br />
-          <div className="flex items-start gap-x-20   ">
+          <div className="flex items-center gap-x-20   ">
             <div className="flex items-center flex-col w-[30%] ">
               <img
                 src={userIcon}
-                className="w-32 h-32 rounded-full"
+                className="w-40 h-40 rounded-full"
                 alt="UserProfilePic"
               />
               <p className="text-[#4F4F4F] text-[32px]">
@@ -74,7 +74,7 @@ export const USerProfilePage = () => {
                     id="ConFirmPassword"
                     className="w-full border border-solid border-[#C9C3C3] rounded-xl
                   px-[23px] py-[13.5px] placeholder:text-[#C9C3C3] outline-none "
-                    placeholder="Confirm the new password"
+                    placeholder="Old Password"
                   />
                 </div>
                 <input

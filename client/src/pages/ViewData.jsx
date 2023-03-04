@@ -30,7 +30,7 @@ export const ViewData = () => {
     setToggle(toggle);
   };
   return (
-    <div className="basis-[83%]">
+    <div className="">
       <section className="flex">
         <Sidebar />
         <section className="flex mt-3 basis-[83%] justify-center ">

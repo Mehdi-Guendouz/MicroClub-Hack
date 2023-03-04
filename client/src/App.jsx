@@ -31,7 +31,7 @@ function App() {
 
           <Route exact path="/profile" element={<USerProfilePage />} />
 
-          <Route exact path="/View your data" element={<ViewData />} />
+          <Route exact path="/View your stoke" element={<ViewDataStoke />} />
 
           <Route exact path="/upload" element={<Upload />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
