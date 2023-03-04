@@ -1,3 +1,6 @@
+import dolor from "../assets/dolar.svg";
+import dolordark from "../assets/icons/dolordark.svg";
+
 export const offers = [
   {
     plan: "Free",
@@ -5,7 +8,8 @@ export const offers = [
     features: ["Visulazation", "2 GB storage", "Intelegente analytics"],
     hrcolor: "black",
     btnbg: "#301E52",
-    btncolor:"white",
+    btncolor: "white",
+    dolor: dolor,
   },
   {
     plan: "Enterprise",
@@ -19,7 +23,8 @@ export const offers = [
     ],
     hrcolor: "white",
     btnbg: "#FEF4D8",
-    btncolor:"black",
+    btncolor: "black",
+    dolor: dolordark,
   },
   {
     plan: "Standard",
@@ -32,6 +37,7 @@ export const offers = [
     ],
     hrcolor: "black",
     btnbg: "#301E52",
-    btncolor:"white",
+    btncolor: "white",
+    dolor: dolor,
   },
 ];

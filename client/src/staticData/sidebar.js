@@ -9,6 +9,10 @@ export const options = [
     icon: dashboard,
   },
   {
+    name: "View your stoke",
+    icon: view,
+  },
+  {
     name: "View your data",
     icon: view,
   },

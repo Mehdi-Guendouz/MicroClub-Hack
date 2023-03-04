@@ -26,6 +26,17 @@ export const Dashboard = () => {
     ],
   });
 
+  const [userdatapie, Setuserdatapie] = useState({
+    labels: data.map((data) => data.year),
+    datasets: [
+      {
+        label: "User Gained",
+        data: data.map((data) => data.userGain),
+        backgroundColor: ["#FCD44D", "#703EDC", " #FE8057"],
+      },
+    ],
+  });
+
   return (
     <div className="flex bg-[#F3F3F3] ">
       <Sidebar />
@@ -42,24 +53,24 @@ export const Dashboard = () => {
               color={"#703EDC"}
               Title={"top region"}
               growth={"3"}
-              info={"hello hi"}
+              info={"Algiers"}
             />
             <Cards
               color={"#FE8057"}
-              Title={"top region"}
-              growth={"3"}
-              info={"hello hi"}
+              Title={"top product"}
+              growth={"19"}
+              info={"HAVIT Headphones"}
             />
             <Cards
-              color={"#FCD44D"}
-              Title={"top region"}
-              growth={"3"}
-              info={"hello hi"}
+              color={"#FE8057"}
+              Title={"top date"}
+              growth={"13"}
+              info={"12/03/2023"}
             />
           </div>
           <div className="flex  justify-between gap-2">
             <Product chartdata={userdata} />
-            <Reachebyage chartdata={userdata} />
+            <Reachebyage chartdata={userdatapie} />
             <Region />
           </div>
           <div className="mb-10">

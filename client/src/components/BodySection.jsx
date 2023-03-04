@@ -4,7 +4,7 @@ import GroupeImage from "../assets/Group 2181.png";
 
 export const BodySection = () => {
   return (
-    <section className=" w-full mt-[4rem]">
+    <section className=" w-full mt-[4rem]" id="Home" >
       <div className="max-w-[1360px] m-auto flex">
         <div className="flex  items-start justify-center flex-col gap-6 translate-x-10">
           <h1 className="text-[54px] min-w-fit font-bold">

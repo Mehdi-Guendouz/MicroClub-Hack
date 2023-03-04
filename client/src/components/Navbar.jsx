@@ -14,7 +14,7 @@ export const Navbar = () => {
           <ul className="flex items-center justify-center h-full gap-16 ">
             {PagesLinks.map((pageLink) => (
               <li className=" text-[24px] font-medium " key={pageLink}>
-                <Link to={`/${pageLink}`}>{pageLink}</Link>
+                <a href={`#${pageLink}`} >{pageLink}</a>
                 <div className="Line"></div>
               </li>
             ))}

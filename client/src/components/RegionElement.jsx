@@ -9,7 +9,7 @@ export const RegionElement = ({wilaya,percentage}) => {
         <p className="text-[#979797]">{percentage}%</p>
       </div>
       <div
-        className={`w-full h-[11px] bg-[#EFF3F9] rounded-xl after:h-3 after:absolute relative after:w-[${r}%] after:bg-black overflow-hidden `}
+        className={`w-full h-[11px] bg-[#EFF3F9]  rounded-xl after:h-3 after:absolute relative after:w-[100%] after:bg-black overflow-hidden `}
       ></div>
     </div>
   );
