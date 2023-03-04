@@ -1,4 +1,8 @@
 import { Sidebar } from "../components/Sidebar";
+import { UserProfileDropDown } from "../components/userDropDown";
+import { useState } from "react";
+import addBtn from "../assets/addBtn.svg";
+import { Search } from "../components/Search";
 
 export const ViewDataStoke = () => {
   const [resposne] = useState([
@@ -65,7 +69,7 @@ export const ViewDataStoke = () => {
                         Categories
                       </th>
                     </tr>
-                    {response?.map((product) => (
+                    {resposne?.map((product) => (
                       <tr key={product?._id}>
                         <td className="px-2 py-1">{product.price}.00 Da</td>
                         <td className="px-2 py-1">{product.name}</td>

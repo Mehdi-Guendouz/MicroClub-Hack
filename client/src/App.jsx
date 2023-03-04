@@ -7,6 +7,7 @@ import { SignIn } from "./pages/SignIn";
 import { Dashboard } from "./pages/Dashboard";
 import { USerProfilePage } from "./pages/Profile";
 import { ViewData } from "./pages/ViewData";
+import { ViewDataStoke } from "./pages/ViewDataStoke";
 
 axios.defaults.baseURL = "http://localhost:4000";
 axios.defaults.withCredentials = true;
