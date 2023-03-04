@@ -5,14 +5,14 @@ import illustratiotwo from "../assets/illustrationtwo.png";
 
 export const About = () => {
   return (
-    <div className="w-full bg-[#703EDC]">
+    <div className="w-full bg-[#703EDC] mt-[8rem]">
       <div className="max-w-[1360px] m-auto p-10">
         <h2 className="text-4xl text-center text-white font-bold">About Us</h2>
-        <div className="flex flex-col text-white">
+        <div className="flex flex-col text-white relative">
           <div className="grid grid-cols-2">
             <div className=" col-span-1 relative">
               <img
-                className=" w-[90%] absolute top-[-50%] left-[-5%]"
+                className="  absolute top-[-50%] left-[-5%]"
                 src={illustrationone}
               />
             </div>
@@ -25,8 +25,9 @@ export const About = () => {
               </p>
             </div>
           </div>
+          <div className="absolute top-[44%] left-[40%]"><img src={arrowabout} /></div>
           <div className="grid grid-cols-2">
-            <div className="  px-5 py-[4rem] max-w-[60%] col-span-1">
+            <div className="  px-5 py-[2rem] max-w-[70%] col-span-1">
               <p className="text-xl">
                 Our platform allows users to easily upload and manage their
                 data. It also includes an AI model that analyzes this data to
@@ -37,7 +38,7 @@ export const About = () => {
             </div>
             <div className="col-span-1 relative">
               <img
-                className="w-[90%] absolute top-[-40%] left-[-5%]"
+                className=" absolute top-[-40%] left-[-5%]"
                 src={illustratiotwo}
               />
             </div>
