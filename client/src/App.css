@@ -1,18 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 * {
-  font-family: 'Outfit', sans-serif ; 
+  font-family: "Outfit", sans-serif;
 }
-
 
 /* side bar */
 .gridsidebar {
   grid-template-columns: 10% 1fr;
-  @apply grid 
+  @apply grid;
 }
+
+/* search */
+
+.shadow-search {
+  filter: drop-shadow(0px 4.21944px 7.38401px rgba(0, 0, 0, 0.25));
+}
+
+/* cards */
+
 
