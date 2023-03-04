@@ -8,6 +8,20 @@
   font-family: "Outfit", sans-serif;
 }
 
+@layer base {
+  a {
+    @apply cursor-pointer ; 
+  }
+}
+
+.box-shadow {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.box-shadow-2 {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+}
+
 /* side bar */
 .gridsidebar {
   grid-template-columns: 10% 1fr;
@@ -22,7 +36,7 @@
 
 /* offers */
 .cards:nth-child(2) {
-  @apply bg-[#301E52]  relative;
+  @apply bg-[#301E52]  relative ;
   
 }
 .cards:nth-child(2)::before {
@@ -40,4 +54,9 @@
 }
 .getnow:nth-child(2) {
   @apply bg-white ; 
+}
+
+/* feature */
+.order:nth-child(2) {
+  order: 2;
 }

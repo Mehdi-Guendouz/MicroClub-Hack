@@ -24,8 +24,15 @@ function App() {
           <Route exact path="/signUp" element={<SignUp />} />
           <Route exact path="/Dashboard" element={<Dashboard />} />
           <Route exact path="/signIn" element={<SignIn />} />
+
           <Route exact path="/profile" element={<USerProfilePage />} />
           <Route exact path="/View your data" element={<ViewData />} />
+          <Route exact path="/upload" element={<Upload />} />
+
+          <Route exact path="/profile" element={<USerProfilePage />} />
+
+          <Route exact path="/View your data" element={<ViewData />} />
+
           <Route exact path="/upload" element={<Upload />} />
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
