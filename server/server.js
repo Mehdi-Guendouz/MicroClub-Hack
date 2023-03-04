@@ -8,6 +8,7 @@ require('dotenv').config();
 //import routes
 const authRoutes = require('./routes/auth');
 const ProductRoutes = require('./routes/Product');
+const filexelRoutes = require('./routes/filexel');
 
 //app
 const app = express();
@@ -31,6 +32,7 @@ app.use(cors({
 //routes middleware
 app.use('/auth', authRoutes);
 app.use('/', ProductRoutes);
+app.use('/', filexelRoutes);
 
 
 mongoose.set("strictQuery", true);

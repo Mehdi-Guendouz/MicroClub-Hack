@@ -1,6 +1,5 @@
 import React from "react";
 import { Sidebar } from "../components/Sidebar";
-import { Search } from "../components/Search";
 import { UserProfileDropDown } from "../components/userDropDown";
 import { useState } from "react";
 import Cards from "../components/Cards";
@@ -20,9 +19,9 @@ export const Dashboard = () => {
         data: data.map((data) => data.userGain),
         backgroundColor: ["#FCD44D", "#703EDC", " #FE8057"],
         lineWidth: 2,
-        borderRadius: 15, 
-        borderSkipped: false ,
-        barThickness: 15 , 
+        borderRadius: 15,
+        borderSkipped: false,
+        barThickness: 15,
       },
     ],
   });
@@ -35,7 +34,6 @@ export const Dashboard = () => {
           <div className="flex justify-between">
             <div className="flex gap-[2rem]">
               <h1 className="text-4xl font-bold text-[#4F4F4F]">{header}</h1>
-              <Search />
             </div>
             <UserProfileDropDown />
           </div>
