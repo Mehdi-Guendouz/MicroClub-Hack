@@ -6,7 +6,7 @@ import arrows from '../assets/arrows.svg' ;
 
 export const Features = () => {
   return (
-    <div className="bg-[#703EDC] mt-[3rem] relative py-[5rem]">
+    <div className="bg-[#703EDC] mt-[3rem] relative py-[5rem]" id="Features">
       <img className="absolute top-[-14%] w-[14%]" src={arrows} />
       <div className="max-w-[1360px] m-auto flex flex-col gap-[3.5rem]">
         <h2 className="text-4xl text-center font-bold">Our Features</h2>

@@ -5,7 +5,7 @@ import illustratiotwo from "../assets/illustrationtwo.png";
 
 export const About = () => {
   return (
-    <div className="w-full bg-[#703EDC] mt-[8rem]">
+    <div className="w-full bg-[#703EDC] mt-[8rem]" id="About">
       <div className="max-w-[1360px] m-auto p-10">
         <h2 className="text-4xl text-center text-white font-bold">About Us</h2>
         <div className="flex flex-col text-white relative">

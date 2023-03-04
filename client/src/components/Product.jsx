@@ -11,20 +11,29 @@ export const Product = ({ chartdata }) => {
 
   const [year, Setyear] = useState(currentYear) ; 
   return (
-    <div className="bg-white p-5 rounded-xl basis-[32%] flex flex-col gap-[2rem]">
-      <div className="flex justify-between">
-        <h3>Product</h3>
+    <div className="bg-white p-5 rounded-xl basis-[32%] flex flex-col gap-[2rem] box-shadow">
+      <div className="flex justify-between flex-col gap-3">
+        <h2 className="font-bold text-2xl">Product</h2>
         <div className="flex gap-1">
-          <button>
-            <img src={leftarrow} />
-          </button>
-          <p>{year}</p>
-          <button>
-            <img src={rightarrow} />
-          </button>
+          <label htmlFor="Date start" className="flex flex-col">
+            Date start
+            <input
+              type="date"
+              name="Date strat"
+              className="border rounded-lg p-2"
+            />
+          </label>
+          <label htmlFor="Date start" className="flex flex-col">
+            Date end
+            <input
+              type="date"
+              name="Date strat"
+              className="border rounded-lg p-2"
+            />
+          </label>
         </div>
       </div>
-      <Bar data={chartdata}  />
+      <Bar data={chartdata} />
     </div>
   );
 };
