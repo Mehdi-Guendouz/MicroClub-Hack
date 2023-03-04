@@ -1,9 +1,10 @@
 import React from "react";
 import { options } from "../staticData/sidebar";
 import premium from "../assets/icons/gold.svg";
+import { Link } from "react-router-dom";
 
 export const Sidebar = () => {
-  let useage = 1.4  ; 
+  let useage = 1.4;
   let porcentage = Math.floor((1.5 * 100) / 2) + "%";
   return (
     <div className="basis-[18%] bg-[#703EDC]  h-[100vh] flex flex-col  justify-between rounded-r-[20px] sticky top-0 left-0 ">
@@ -11,10 +12,13 @@ export const Sidebar = () => {
       <div className="flex flex-col gap-5">
         {options.map((Element) => {
           return (
-            <a className=" px-4 py-2 grid gridsidebar text-left gap-4 text-white font-bold hover:bg-[#FE8057]">
+            <Link
+              to={`/${Element.name}`}
+              className=" px-4 py-2 grid gridsidebar text-left gap-4 text-white font-bold hover:bg-[#FE8057]"
+            >
               <img src={Element.icon} className="cols-span-1 " />
               <h3 className=" text-xl">{Element.name}</h3>
-            </a>
+            </Link>
           );
         })}
       </div>
