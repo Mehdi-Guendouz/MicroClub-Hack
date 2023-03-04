@@ -7,7 +7,6 @@ import { Dashboard } from "./pages/Dashboard";
 
 import { SignIn } from "./pages/SignIn";
 
-
 function App() {
   return (
     <div className="App">
@@ -19,7 +18,6 @@ function App() {
           <Route exact path="/dashbord" element={<Dashboard />} />
 
           <Route exact path="/signIn" element={<SignIn />} />
-
         </Routes>
       </Router>
     </div>

@@ -20,6 +20,24 @@
   filter: drop-shadow(0px 4.21944px 7.38401px rgba(0, 0, 0, 0.25));
 }
 
-/* cards */
-
-
+/* offers */
+.cards:nth-child(2) {
+  @apply bg-[#301E52]  relative;
+  
+}
+.cards:nth-child(2)::before {
+  content: url('./assets/premium.svg');
+  position: absolute;
+  top: -14%;
+  left: 28%;
+  
+}
+.cards:nth-child(2) {
+  @apply text-white;
+}
+.line:nth-child(2) {
+  @apply border-white;
+}
+.getnow:nth-child(2) {
+  @apply bg-white ; 
+}
