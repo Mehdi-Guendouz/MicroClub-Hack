@@ -13,9 +13,11 @@ export const Navbar = () => {
         <div className="h-full ml-2 ">
           <ul className="flex items-center justify-center h-full gap-16 ">
             {PagesLinks.map((pageLink) => (
-              <li className=" text-[24px] font-medium " key={pageLink}>
-                <a href={`#${pageLink}`} >{pageLink}</a>
-                <div className="Line"></div>
+              <li
+                className=" text-[24px] font-medium "
+                key={pageLink}
+              >
+                <a href={`#${pageLink}`}>{pageLink}</a>
               </li>
             ))}
           </ul>

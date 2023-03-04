@@ -6,11 +6,12 @@
 
 * {
   font-family: "Outfit", sans-serif;
+  scroll-behavior: smooth;
 }
 
 @layer base {
   a {
-    @apply cursor-pointer ; 
+    @apply cursor-pointer;
   }
 }
 
@@ -36,15 +37,13 @@
 
 /* offers */
 .cards:nth-child(2) {
-  @apply bg-[#301E52]  relative ;
-  
+  @apply bg-[#301E52]  relative;
 }
 .cards:nth-child(2)::before {
-  content: url('./assets/premium.svg');
+  content: url("./assets/premium.svg");
   position: absolute;
   top: -14%;
   left: 28%;
-  
 }
 .cards:nth-child(2) {
   @apply text-white;
@@ -53,7 +52,7 @@
   @apply border-white;
 }
 .getnow:nth-child(2) {
-  @apply bg-white ; 
+  @apply bg-white;
 }
 
 /* feature */
