@@ -20,10 +20,10 @@ exports.signup = async (req, res) => {
   try {
     const newUser = await User.create({first_name: first_name, last_name: last_name, email: email,  password: bcrypt.hashSync(password, bcryptSalt),field: field,place: place});
     if (newUser){
-      res.status(200).send(newUser);
+      res.status(200).json(newUser);
     }
   } catch (error) {
-    res.status(400).send(error)
+    res.status(400).json(error)
   }
 
 }

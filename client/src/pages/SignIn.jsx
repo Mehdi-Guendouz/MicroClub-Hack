@@ -2,13 +2,21 @@ import { useState } from "react";
 import bannerImage from "../assets/CreateAccout.png";
 import { Link } from "react-router-dom";
 import confirmProc from "../assets/confirmProc.svg";
+import axios from "axios";
 
 export const SignIn = () => {
-  const [Email, setEamil] = useState("");
-  const [Password, setPassword] = useState("");
+  const [email, setEamil] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    const data = { Email, Password };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const {data} = await axios.post('/auth/signin', {email,password});
+      console.log(data);
+      alert('Login successful');
+    } catch (e) {
+      alert('Login failed');
+    }
     console.log(data);
   };
   return (
@@ -29,7 +37,7 @@ export const SignIn = () => {
           <form
             action=""
             className="flex items-center flex-col h-full gap-y-8 "
-            onSubmit={() => handleSubmit()}
+            onSubmit={handleSubmit}
           >
             <input
               type="email"
@@ -55,10 +63,6 @@ export const SignIn = () => {
                 type="submit"
                 className="text-white bg-[#703EDC] capitalize rounded-[64px] border border-solid
               border-[#C9C3C3] px-[25px] py-[10px] text-[20px] flex items-center gap-x-2 "
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/dashbord");
-                }}
               >
                 Confirm
                 <img src={confirmProc} alt="" />
